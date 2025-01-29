@@ -139,9 +139,9 @@ print(f"✅ Fichier Excel généré : {output_excel}")
 ```
 /mon_projet
 │── script.py                  # Script principal
-│── resultats_climat.xlsx       # Résultats générés
-│── horiz_abs_espog.tiff        # Raster utilisé
-│── polygone_zones.geojson      # Shapefile utilisé
+│── resultats_csv.xlsx       # Résultats générés
+│── ficher.tiff        # Raster utilisé
+│── vecteur.geojson      # Shapefile utilisé
 │── README.md                   # Documentation
 ```
 
