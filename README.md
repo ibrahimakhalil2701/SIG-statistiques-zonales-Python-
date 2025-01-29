@@ -35,7 +35,7 @@ from rasterstats import zonal_stats
 raster_path = "ficher.tiff"
 shapefile_path = "verteur.geojson"
 
-# Définir le CRS NAD83 / Québec Lambert (EPSG:32198)
+# Définir le CRS NAD83 / Québec Lambert (EPSG:32198)  selon votre zone 
 quebec_lambert_crs = "EPSG:32198"
 
 # Vérification des fichiers
@@ -44,14 +44,14 @@ if not os.path.exists(raster_path):
 if not os.path.exists(shapefile_path):
     raise FileNotFoundError(f"\u274c Le fichier GeoJSON est introuvable : {shapefile_path}")
 
-# Charger le shapefile
+# Charger le vecteur
 gdf = gpd.read_file(shapefile_path)
 
-# Vérifier si le shapefile est vide
+# Vérifier si le vecteur est vide
 if gdf.empty:
     raise ValueError("\u274c Le shapefile est vide après lecture.")
 
-# Reprojeter le shapefile si nécessaire
+# Reprojeter le vecteur si nécessaire vers les crs de votre zone
 if gdf.crs != quebec_lambert_crs:
     print(f"⚠️ Reprojection du shapefile de {gdf.crs} vers {quebec_lambert_crs}...")
     gdf = gdf.to_crs(quebec_lambert_crs)
@@ -83,7 +83,7 @@ print("🔄 Reprojection du raster en cours...")
 raster_data, transform, profile = reproject_raster_to_lambert(raster_path, quebec_lambert_crs)
 print("✅ Reprojection du raster terminée.")
 
-# Vérification de la superposition raster/shapefile
+# Vérification de la superposition raster/vecteur à modifier ou à enlever selon votre cas
 gdf_bounds = gdf.total_bounds  # xmin, ymin, xmax, ymax
 
 raster_bounds = (
