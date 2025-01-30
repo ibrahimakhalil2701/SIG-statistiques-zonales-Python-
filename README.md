@@ -7,7 +7,7 @@ Ce projet permet d'effectuer une **analyse zonale** à partir d'un **fichier ras
 Avant d'exécuter le script, assurez-vous d'avoir installé toutes les bibliothèques nécessaires. Vous pouvez les installer en exécutant la commande suivante :
 
 ```bash
-pip install rasterio geopandas numpy pandas rasterstats xlsxwriter
+!pip install rasterio geopandas numpy pandas rasterstats xlsxwriter
 ```
 
 ## 🚀 Exécution du Script
